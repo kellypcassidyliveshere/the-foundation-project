@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Service Provider Network - The Foundation Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F8F9FA;
+            color: #212529;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #F1F3F5;
+            padding-bottom: 20px;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background-color: #0A2240;
+            color: #FFF200;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header h1 {
+            color: #0A2240;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #6C757D;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .onboarding-alert {
+            background-color: #EBF8FF;
+            border: 1px solid #BEE3F8;
+            color: #2B6CB0;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0A2240;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #E9ECEF;
+            padding-bottom: 4px;
+        }
+
+        .provider-card {
+            background: #F8F9FA;
+            border: 1px solid #E9ECEF;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 15px;
+        }
+
+        .provider-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .provider-icon {
+            font-size: 1.2rem;
+            background: #0A2240;
+            color: #FFFFFF;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .provider-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #0A2240;
+        }
+
+        .provider-desc {
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .scope-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .scope-tag {
+            background: #E2E8F0;
+            color: #4A5568;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CED4DA;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background-color: #FFFFFF;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #0A2240;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #0A2240 0%, #163B66 100%);
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .cta-box h3 {
+            font-size: 1.1rem;
+            color: #FFF200;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .cta-box p {
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background-color: #FFF200;
+            color: #0A2240;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .nav-footer {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: #0A2240;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border: 2px solid #0A2240;
+            border-radius: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <span class="brand-badge">B2B Provider Registry</span>
+            <h1>The Guardian Program</h1>
+            <p>Register your community group, firm, or agency as an verified service delivery partner within our social entrepreneurship ecosystem.</p>
+        </div>
+
+        <div class="onboarding-alert">
+            💼 <strong>Vendor Ecosystem Model:</strong> Registered Guardians operate as autonomous delivery entities who manage their own personnel, aligned with our centralized architectural service pathways.
+        </div>
+
+        <div class="section-title">Designated Delivery Frameworks</div>
+
+        <!-- FRAMEWORK 1 -->
+        <div class="provider-card">
+            <div class="provider-header">
+                <div class="provider-icon">⚖️</div>
+                <div class="provider-name">Advocacy & Admin Partners</div>
+            </div>
+            <div class="provider-desc">Providing high-touch localized navigation for NDIS frameworks, Centrelink pathways, and state legal or document witnessing protocols.</div>
+            <div class="scope-tags">
+                <span class="scope-tag">NDIS Support</span>
+                <span class="scope-tag">Forms & Legal</span>
+                <span class="scope-tag">Centrelink</span>
+            </div>
+        </div>
+
+        <!-- FRAMEWORK 2 -->
+        <div class="provider-card">
+            <div class="provider-header">
+                <div class="provider-icon">💼</div>
+                <div class="provider-name">Employment Ready Networks</div>
+            </div>
+            <div class="provider-desc">Delivering professional profile engineering, resume optimization frameworks, interview preparedness training, and job alerts.</div>
+            <div class="scope-tags">
+                <span class="scope-tag">Resume Build</span>
+                <span class="scope-tag">Job Readiness</span>
+                <span class="scope-tag">Mentoring</span>
+            </div>
+        </div>
+
+        <!-- FRAMEWORK 3 -->
+        <div class="provider-card">
+            <div class="provider-header">
+                <div class="provider-icon">🌱</div>
+                <div class="provider-name">Wellbeing & Core Life Skills</div>
+            </div>
+            <div class="provider-desc">Specialized external practitioners focused on alcohol and drug peer support networks, mental health linking, fitness plans, and budget design.</div>
+            <div class="scope-tags">
+                <span class="scope-tag">AOD Support</span>
+                <span class="scope-tag">Mental Health</span>
+                <span class="scope-tag">Life Skills</span>
+            </div>
+        </div>
+
+        <!-- PROVIDER REGISTRATION FORM -->
+        <div class="section-title" style="margin-top: 25px;">Provider Intake Request</div>
+        
+        <form onsubmit="event.preventDefault(); alert('Provider registration submission captured securely.');">
+            <div class="form-group">
+                <label for="org-name">Organization / Entity Name</label>
+                <input type="text" id="org-name" placeholder="e.g. Shield Advocacy Group" required>
+            </div>
+
+            <div class="form-group">
+                <label for="provider-type">Primary Support Category</label>
+                <select id="provider-type" required>
+                    <option value="">-- Select Alignment Area --</option>
+                    <option value="advocacy">Advocacy & Administrative Assistance</option>
+                    <option value="employment">Employment Pathways & Pro-Development</option>
+                    <option value="wellbeing">Wellbeing, AOD & Peer Support</option>
+                    <option value="commercial">Commercial Space Vendor Partner</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-email">Corporate Contact Email</label>
+                <input type="email" id="contact-email" placeholder="partner@agency.org.au" required>
+            </div>
+
+            <div class="form-group">
+                <label for="scope-summary">Capability Statement & Scope of Delivery</label>
+                <textarea id="scope-summary" rows="3" placeholder="Briefly describe your team's support capacity or active service programs..." required></textarea>
+            </div>
+
+            <div class="cta-box">
+                <h3>Submit Vendor Protocol</h3>
+                <p>Upon review, matching organizations will be systematically logged into our secure portal infrastructure.</p>
+                <button type="submit" class="submit-btn">Register As Service Provider</button>
+            </div>
+        </form>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="nav-footer">
+            <a href="index.html" class="back-btn">← Return to Main</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

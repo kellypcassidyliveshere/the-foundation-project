@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Foundation Project | Join Member</title>
+    <style>
+        :root {
+            --primary-blue: #0d3b66;
+            --secondary-blue: #0056b3;
+            --accent-bg: #f4f7f6;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --border-color: #dddddd;
+            --alert-amber: #fff3cd;
+            --alert-text: #856404;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--accent-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background-color: var(--alert-amber);
+            color: var(--alert-text);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            border: 1px solid #ffeeba;
+            font-weight: 500;
+        }
+
+        /* Grid Layout for Pathway */
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .pathway-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--primary-blue);
+            border-radius: 6px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .pathway-card h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .pathway-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pathway-card ul li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #eeeeee;
+        }
+
+        .pathway-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Requirements Section */
+        .requirements-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .requirements-box h2 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+
+        /* Registration Form Section */
+        .form-section {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .form-section h2 {
+            margin-top: 0;
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input {
+            width: auto;
+            margin-top: 0.3rem;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .pathway-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>THE FOUNDATION PROJECT</h1>
+        <p>Empowering victims of abuse, homelessness, and disability through structured growth.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Material-Aid Policy Notice for Service Providers -->
+        <div class="notice-banner">
+            <strong>Notice for Service Providers:</strong> Material-aid is strictly provided to members only upon formal registration for services.
+        </div>
+
+        <!-- Learning Pathway Architecture directly from 497.jpg -->
+        <h2>Member Benefits & Learning Pathway</h2>
+        <div class="pathway-grid">
+            
+            <div class="pathway-card">
+                <h3>⚖️ Advocacy & Admin</h3>
+                <ul>
+                    <li>Authorized contact / Referee</li>
+                    <li>Complete complex forms</li>
+                    <li>Witnessing documents</li>
+                    <li>Help with Centrelink, ATO, & Medicare</li>
+                    <li>NDIS Planning & Support</li>
+                    <li>Bookings & Appointment management</li>
+                </ul>
+            </div>
+
+            <div class="pathway-card">
+                <h3>💼 Employment Ready</h3>
+                <ul>
+                    <li>Create professional resumes</li>
+                    <li>Set up job alerts</li>
+                    <li>Prepare for job interviews</li>
+                    <li>Connect with employment services</li>
+                    <li>Employment opportunities*</li>
+                </ul>
+            </div>
+
+            <div class="pathway-card">
+                <h3>🌱 Wellbeing & Support</h3>
+                <ul>
+                    <li>Welfare checks & Peer support</li>
+                    <li>Establish healthy habits & routines</li>
+                    <li>Link with Drug & Alcohol support</li>
+                    <li>Locate mental health support</li>
+                    <li>Design a fitness workout</li>
+                </ul>
+            </div>
+
+            <div class="pathway-card">
+                <h3>🏠 Life Skills</h3>
+                <ul>
+                    <li>Create a menu / budget</li>
+                    <li>Educational resources</li>
+                    <li>Sustainable living guides</li>
+                    <li>Social & recreational event calendar</li>
+                </ul>
+            </div>
+
+            <div class="pathway-card">
+                <h3>🚀 Pro Development</h3>
+                <ul>
+                    <li>Business planning & Website design</li>
+                    <li>Profile building & Professional emails</li>
+                    <li>Mobile application development</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="requirements-box">
+            <h2>The Learning Pathway Requirement</h2>
+            <p><strong>REQUIRED: WEEKLY CHECK-INS</strong></p>
+            <p>Check-ins ensure progression towards employment within our community admin or external partners.</p>
+            <p><small>*Note: Professional Development and Employment services require completion of all learning programs. Active engagement in learning programs with weekly check-ins is required to Join the Board.</small></p>
+        </div>
+
+        <!-- Formspree Integration Form Section -->
+        <!-- Update the 'your_formspree_id_here' placeholder string when you have your token -->
+        <div class="form-section" id="registration-form">
+            <h2>Community Registration Form</h2>
+<form action="http://localhost:8082/register" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="username" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Mobile No.</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Mobile number">
+                </div>
+
+                <div class="form-group">
+                    <label for="pathway_interest">Intended Pathway Focus</label>
+                    <select id="pathway_interest" name="pathway_interest">
+                        <option value="advocacy">Advocacy & Admin</option>
+                        <option value="employment">Employment Ready</option>
+                        <option value="wellbeing">Wellbeing & Support</option>
+                        <option value="lifeskills">Life Skills</option>
+                        <option value="pro_dev">Pro Development</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Service Provider / Referral Details (If applicable)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any relevant details regarding registration context..."></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="acknowledge" name="acknowledge_terms" required>
+                    <label for="acknowledge">I acknowledge that material-aid is strictly provided upon registration for services and that ongoing program access requires consistent weekly check-ins.</label>
+                </div>
+
+                <!-- Formspree spam protection bot-catcher -->
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button type="submit" class="btn-submit">Submit Registration</button>
+            </form>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; margin-bottom: 1rem;">
+            <a href="index.html" style="
+                display: inline-block;
+                padding: 0.75rem 2rem;
+                background-color: transparent;
+                color: var(--primary-blue);
+                border: 2px solid var(--primary-blue);
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 4px;
+                transition: all 0.2s ease;
+            " onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.color='#ffffff';" 
+               onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--primary-blue)';"
+            >
+                ← Back to Main
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Infinity Link | The Foundation Project.
+    </footer>
+
+</body>
+</html>

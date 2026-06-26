@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Support Guide - The Foundation Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F8F9FA;
+            color: #212529;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #F1F3F5;
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            color: #0A2240;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #6C757D;
+            font-size: 0.9rem;
+        }
+
+        .emergency-banner {
+            background-color: #FFF200;
+            color: #0A2240;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 1px solid #E6D900;
+        }
+
+        .step-card {
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border-left: 5px solid #CED4DA;
+            background: #F8F9FA;
+        }
+
+        .step-1 { border-left-color: #D9534F; } /* Crisis Red */
+        .step-2 { border-left-color: #0275D8; } /* Access Blue */
+        .step-3 { border-left-color: #F0AD4E; } /* Register Orange/Yellow */
+        .step-4 { border-left-color: #5CB85C; } /* Provider Green */
+
+        .step-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6C757D;
+            margin-bottom: 2px;
+        }
+
+        .step-title {
+            color: #0A2240;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            background: #FFFFFF;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #E9ECEF;
+        }
+
+        .contact-row {
+            background: #FFFFFF;
+            border: 1px solid #E9ECEF;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #212529;
+        }
+
+        .contact-sub {
+            font-size: 0.8rem;
+            color: #6C757D;
+        }
+
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0A2240;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            transition: background 0.1s ease;
+        }
+
+        .call-btn:active {
+            background-color: #041226;
+        }
+
+        .nav-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: #0A2240;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border: 2px solid #0A2240;
+            border-radius: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <h1>Housing Support Resource Guide</h1>
+            <p>A Resource by The Foundation Project</p>
+        </div>
+
+        <div class="emergency-banner">
+            ⚠️ Immediate Danger? Call Police/Ambulance/Fire: 000<br>
+            Lifeline (Mental Health Crisis): 13 11 14
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step-card step-1">
+            <div class="step-num">Step 1</div>
+            <div class="step-title">Statewide Crisis Hotline (24/7)</div>
+            <div class="step-desc">Start here if you are currently homeless, in a crisis, or it is after-hours.</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Statewide Homeless Line</div>
+                </div>
+                <a href="tel:1800825955" class="call-btn">📞 1800 825 955</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Safe Steps</div>
+                    <div class="contact-sub">Domestic Violence Support</div>
+                </div>
+                <a href="tel:1800015188" class="call-btn">📞 1800 015 188</a>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card step-2">
+            <div class="step-num">Step 2</div>
+            <div class="step-title">Local Access Points</div>
+            <div class="step-desc">Contact the one closest to you for a housing assessment. A referral from Statewide (Step 1) helps secure priority.</div>
+            
+            <h4 style="font-size: 0.85rem; color: #0A2240; margin: 10px 0 5px 2px; text-transform: uppercase;">Metro Melbourne</h4>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Frontyard Youth Services</div>
+                    <div class="contact-sub">Ages 12–25</div>
+                </div>
+                <a href="tel:0399770077" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Launch Housing</div>
+                    <div class="contact-sub">North / Collingwood</div>
+                </div>
+                <a href="tel:0392889600" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Salvation Army</div>
+                    <div class="contact-sub">West / Sunshine</div>
+                </div>
+                <a href="tel:0393125719" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Unison Housing</div>
+                    <div class="contact-sub">West / Seddon</div>
+                </div>
+                <a href="tel:0396888300" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Launch Housing</div>
+                    <div class="contact-sub">South / St Kilda</div>
+                </div>
+                <a href="tel:0385981111" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Uniting Vic.Tas</div>
+                    <div class="contact-sub">East / Ringwood</div>
+                </div>
+                <a href="tel:0388704000" class="call-btn">📞 Call Agency</a>
+            </div>
+
+            <h4 style="font-size: 0.85rem; color: #0A2240; margin: 15px 0 5px 2px; text-transform: uppercase;">Regional Victoria</h4>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Haven; Home, Safe</div>
+                    <div class="contact-sub">West / Sunshine</div>
+                </div>
+                <a href="tel:0393134300" class="call-btn">📞 03 9313 4300</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Haven; Home, Safe</div>
+                    <div class="contact-sub">Bendigo / Mildura</div>
+                </div>
+                <a href="tel:1300428364" class="call-btn">📞 1300 428 364</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Mallee Family Care / SalvoConnect</div>
+                    <div class="contact-sub">Geelong</div>
+                </div>
+                <a href="tel:0352224100" class="call-btn">📞 03 5222 4100</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">BeyondHousing</div>
+                    <div class="contact-sub">Shepparton / Wodonga</div>
+                </div>
+                <a href="tel:0358331000" class="call-btn">📞 03 5833 1000</a>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-card step-3">
+            <div class="step-num">Step 3</div>
+            <div class="step-title">Victorian Housing Register (VHR)</div>
+            <div class="step-desc">Once assessed, ensure your application for long-term social housing is active.</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">VHR Application Enquiries</div>
+                </div>
+                <a href="tel:1800149361" class="call-btn">📞 1800 149 361</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Local DFFH Housing Office</div>
+                </div>
+                <a href="tel:1300475170" class="call-btn">📞 1300 475 170</a>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-card step-4">
+            <div class="step-num">Step 4</div>
+            <div class="step-title">Community Providers</div>
+            <div class="step-desc">Ongoing support and case management while your applications are pending.</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Aboriginal Housing Victoria</div>
+                </div>
+                <a href="tel:0394032100" class="call-btn">📞 03 9403 2100</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Women's Housing Ltd</div>
+                </div>
+                <a href="tel:0394126133" class="call-btn">📞 03 9412 6133</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">VincentCare Victoria</div>
+                </div>
+                <a href="tel:0396119200" class="call-btn">📞 03 9611 9200</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">HousingFirst</div>
+                </div>
+                <a href="tel:0395345837" class="call-btn">📞 03 9534 5837</a>
+            </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="nav-footer">
+            <a href="index.html" class="back-btn">← Return to Main Page</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

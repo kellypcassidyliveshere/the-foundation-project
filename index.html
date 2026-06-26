@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Foundation Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            padding: 30px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .welcome-text {
+            color: #0d2344;
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 0; /* Stripped space below text */
+        }
+
+        .logo-container {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-image {
+            width: 210px; 
+            height: auto;
+            display: inline-block;
+            /* CRITICAL FIX: Strong negative margins slice through 
+               the invisible transparency built into the image file 
+            */
+            margin-top: -35px;    /* Pulls logo 3 spaces closer to "WELCOME TO" */
+            margin-bottom: -35px; /* Pulls "THE" 3 spaces closer to the logo */
+        }
+
+        .brand-title {
+            color: #0d2344;
+            font-size: 1.45rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .brand-title .title-the {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .brand-title .title-main {
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 12px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: transform 0.1s ease, opacity 0.1s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-dark {
+            background-color: #0d2344;
+            color: #ffffff;
+        }
+
+        .btn-yellow {
+            background-color: #ffee00;
+            color: #0d2344;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 class="welcome-text">
+            WELCOME<br>TO
+        </h1>
+
+        <div class="logo-container">
+            <img src="thefoundationproject.jpg" alt="The Foundation Project Logo" class="logo-image">
+        </div>
+
+        <h2 class="brand-title">
+            <span class="title-the">THE</span>
+            <span class="title-main">FOUNDATION PROJECT</span>
+        </h2>
+
+        <div class="button-container">
+            <a href="homeless.html" class="btn btn-dark">Homelessness</a>
+            <a href="DV.html" class="btn btn-dark">Domestic Violence</a>
+            <a href="guardian.html" class="btn btn-dark">Support Pathways</a>
+            <a href="joinmember.html" class="btn btn-yellow">Join Our Community</a>
+        </div>
+    </div>
+
+</body>
+</html>

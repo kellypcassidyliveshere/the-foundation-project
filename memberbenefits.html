@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Benefits & Learning Pathway</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #1a2530;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            color: #0d233a;
+            margin: 0 0 5px 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            color: #c5a059;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .header p {
+            font-style: italic;
+            color: #657786;
+            margin: 0;
+        }
+        .alert-banner {
+            background-color: #0d233a;
+            color: #ffffff;
+            padding: 12px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 600px) {
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
+        .card {
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafbfc;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #0d233a;
+            font-size: 16px;
+            border-bottom: 1px solid #e1e8ed;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .card ul li {
+            margin-bottom: 6px;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .restricted {
+            background-color: #f7fafc;
+            border-left: 4px solid #c5a059;
+        }
+        .footer-action {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e8ed;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0d233a;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #1a365d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>The Foundation Project</h1>
+        <h2>Member Benefits & Learning Pathway</h2>
+        <p>Empowering victims of abuse, homelessness, and disability through structured growth.</p>
+    </div>
+
+    <div class="alert-banner">
+        🚀 The Learning Pathway Requirement: Required Weekly Check-Ins Ensure Progression
+    </div>
+
+    <div class="grid">
+        <!-- Advocacy & Admin -->
+        <div class="card">
+            <h3>⚖️ Advocacy & Admin</h3>
+            <ul>
+                <li>Authorized contact / Referee</li>
+                <li>Complete complex forms</li>
+                <li>Witnessing documents</li>
+                <li>Help with Centrelink, ATO & Medicare</li>
+                <li>NDIS Planning & Support</li>
+                <li>Bookings & Appointment management</li>
+            </ul>
+        </div>
+
+        <!-- Wellbeing & Support -->
+        <div class="card">
+            <h3>🌱 Wellbeing & Support</h3>
+            <ul>
+                <li>Welfare checks & Peer support</li>
+                <li>Establish healthy habits & routines</li>
+                <li>Link with Drug & Alcohol support</li>
+                <li>Locate mental health support</li>
+                <li>Design a fitness workout</li>
+            </ul>
+        </div>
+
+        <!-- Life Skills -->
+        <div class="card">
+            <h3>🏠 Life Skills</h3>
+            <ul>
+                <li>Create a menu or budget</li>
+                <li>Educational resources</li>
+                <li>Sustainable Living guides</li>
+                <li>Social & Recreational event calendar</li>
+            </ul>
+        </div>
+
+        <!-- Employment Ready -->
+        <div class="card restricted">
+            <h3>💼 Employment Ready *</h3>
+            <ul>
+                <li>Create professional resumes</li>
+                <li>Set up job alerts</li>
+                <li>Prepare for job interviews</li>
+                <li>Connect with employment services</li>
+                <li>Employment opportunities</li>
+            </ul>
+        </div>
+
+        <!-- Pro Development -->
+        <div class="card restricted">
+            <h3>🚀 Pro Development *</h3>
+            <ul>
+                <li>Business planning & Website design</li>
+                <li>Profile building & Professional emails</li>
+                <li>Mobile application development</li>
+            </ul>
+        </div>
+
+        <!-- Join The Board Info -->
+        <div class="card full-width" style="border: 2px dashed #0d233a; background-color: #f0f4f8;">
+            <h3 style="color: #0d233a; justify-content: center;">🤝 Join The Board</h3>
+            <p style="text-align: center; margin: 0; font-size: 14px; color: #4a5568;">
+                Reserved for members actively engaged in learning programs with weekly check-ins.
+            </p>
+        </div>
+    </div>
+
+    <p style="font-size: 12px; color: #718096; margin-top: 15px; text-align: center;">
+        * Must have completed all learning programs to access Professional Development and Employment services.
+    </p>
+
+    <div class="footer-action">
+        <a href="index.html" class="btn">Become A Member</a>
+    </div>
+</div>
+
+</body>
+</html>

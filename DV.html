@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escaping Violence Guide - The Foundation Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F8F9FA;
+            color: #212529;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #F1F3F5;
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            color: #0A2240;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #6C757D;
+            font-size: 0.9rem;
+        }
+
+        .emergency-banner {
+            background-color: #FFF200;
+            color: #0A2240;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 1px solid #E6D900;
+        }
+
+        .step-card {
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border-left: 5px solid #CED4DA;
+            background: #F8F9FA;
+        }
+
+        .step-1 { border-left-color: #D9534F; } /* Red */
+        .step-2 { border-left-color: #0275D8; } /* Blue */
+        .step-3 { border-left-color: #F0AD4E; } /* Yellow/Orange */
+        .step-4 { border-left-color: #5CB85C; } /* Green */
+
+        .step-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6C757D;
+            margin-bottom: 2px;
+        }
+
+        .step-title {
+            color: #0A2240;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            background: #FFFFFF;
+            padding: 11px;
+            border-radius: 6px;
+            border: 1px solid #E9ECEF;
+        }
+
+        .critical-alert {
+            background-color: #FFF5F5;
+            border: 1px solid #FFA8A8;
+            color: #C92A2A;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .info-list {
+            font-size: 0.85rem;
+            color: #495057;
+            margin-bottom: 15px;
+            padding-left: 15px;
+        }
+
+        .info-list li {
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .contact-row {
+            background: #FFFFFF;
+            border: 1px solid #E9ECEF;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #212529;
+        }
+
+        .contact-sub {
+            font-size: 0.8rem;
+            color: #6C757D;
+            margin-top: 2px;
+        }
+
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0A2240;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+
+        .call-btn:active {
+            background-color: #041226;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            color: #0A2240;
+            border: 1px solid #0A2240;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .link-btn:active {
+            background-color: #F1F3F5;
+        }
+
+        .nav-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: #0A2240;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border: 2px solid #0A2240;
+            border-radius: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <h1>Escaping Violence Guide</h1>
+            <p>Your Safety & Resource Plan | The Foundation Project</p>
+        </div>
+
+        <div class="emergency-banner">
+            ⚠️ IF YOU ARE IN IMMEDIATE DANGER, CALL 000
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step-card step-1">
+            <div class="step-num">Step 1</div>
+            <div class="step-title">Immediate Safety & Safety Needs</div>
+            <div class="step-desc">If your property was taken, damaged, or you have been physically assaulted, call for crisis planning immediately.</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">The Orange Door (Statewide)</div>
+                    <div class="contact-sub">Primary entry point for family violence services in Victoria.</div>
+                </div>
+                <a href="tel:1800319353" class="call-btn">📞 1800 319 353</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Safe Steps</div>
+                    <div class="contact-sub">24/7 Crisis Response. Confidential support and emergency accommodation.</div>
+                </div>
+                <a href="tel:1800015188" class="call-btn">📞 1800 015 188</a>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card step-2">
+            <div class="step-num">Step 2</div>
+            <div class="step-title">Centrelink Crisis Payment</div>
+            
+            <div class="critical-alert">
+                ⚠️ CRITICAL DEADLINE:<br>
+                You must contact Centrelink within 7 days of your living arrangements changing.
+            </div>
+
+            <ul class="info-list">
+                <li>Apply online via <strong>myGov</strong> (Payments & Claims &gt; Claims &gt; Crisis Payments &gt; Crisis Payments)</li>
+                <li>Or call your regular payment line to register your "Intent to claim."</li>
+            </ul>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-card step-3">
+            <div class="step-num">Step 3</div>
+            <div class="step-title">Leaving Violence Program (LVP)</div>
+            <div class="step-desc">Up to $5,000 to help establish a safe home ($1,500 cash + $3,500 for goods/services).</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">Apply Online / Enquiries</div>
+                </div>
+                <a href="tel:1800253283" class="call-btn">📞 1800 253 283</a>
+                <a href="https://leavingviolenceprogram.org.au" target="_blank" class="link-btn">🌐 leavingviolenceprogram.org.au</a>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-card step-4">
+            <div class="step-num">Step 4</div>
+            <div class="step-title">Victims of Crime Support</div>
+            <div class="step-desc">Financial assistance via FAS (Financial Assistance Scheme) and counseling support.</div>
+            
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">FAS Portal Support</div>
+                </div>
+                <a href="tel:1800161136" class="call-btn">📞 1800 161 136</a>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-info">
+                    <div class="contact-name">General Advice Line</div>
+                </div>
+                <a href="tel:1800819817" class="call-btn">📞 1800 819 817</a>
+            </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="nav-footer">
+            <a href="index.html" class="back-btn">← Return to Main Page</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
