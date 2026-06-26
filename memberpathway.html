@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Benefits & Learning Pathway | The Foundation Project</title>
+    <!-- Tailwind CSS for clean, modern, responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .badge-locked { filter: grayscale(100%); opacity: 0.6; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold tracking-tight text-indigo-900 sm:text-4xl">THE FOUNDATION PROJECT</h1>
+            <p class="mt-2 text-lg text-gray-600 italic">Empowering victims of abuse, homelessness, and disability through structured growth.</p>
+            
+            <div class="mt-6 p-4 bg-amber-50 border-l-4 border-amber-500 text-amber-950 text-sm rounded-r-md inline-block max-w-2xl text-left">
+                <strong>Notice for Service Providers:</strong> Material-aid is strictly provided to members only upon formal registration for services.
+            </div>
+        </header>
+
+        <!-- Learning Pathway & Badges Grid -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">Member Benefits & Learning Pathway</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Category: Advocacy & Admin -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <span class="text-2xl">⚖️</span>
+                        <h3 class="text-xl font-bold text-gray-800">Advocacy & Admin</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> Authorized contact / Referee</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> Complete complex forms</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> Witnessing documents</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> Help with Centrelink, ATO, &amp; Medicare</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> NDIS Planning &amp; Support</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span> Bookings &amp; Appointment management</li>
+                    </ul>
+                </div>
+
+                <!-- Category: Wellbeing & Support -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <span class="text-2xl">🌱</span>
+                        <h3 class="text-xl font-bold text-gray-800">Wellbeing &amp; Support</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Welfare checks &amp; Peer support</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Establish healthy habits &amp; routines</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Link with Drug &amp; Alcohol support</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Locate mental health support</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Design a fitness workout</li>
+                    </ul>
+                </div>
+
+                <!-- Category: Life Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <span class="text-2xl">🏠</span>
+                        <h3 class="text-xl font-bold text-gray-800">Life Skills</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span> Create a menu / budget</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span> Educational resources</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span> Sustainable living guides</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span> Social &amp; recreational event calendar</li>
+                    </ul>
+                </div>
+
+                <!-- Category: Advanced Pathways (Locked initially) -->
+                <div class="bg-gray-100 p-6 rounded-xl border border-dashed border-gray-300 relative">
+                    <div class="absolute top-3 right-3 bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded font-medium tracking-wide uppercase">Requires Prerequisites</div>
+                    
+                    <!-- Employment Ready -->
+                    <div class="mb-4">
+                        <div class="flex items-center space-x-3 mb-2 opacity-75">
+                            <span class="text-xl">💼</span>
+                            <h3 class="text-base font-bold text-gray-700">Employment Ready*</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 italic">Unlocks after completing core learning programs.</p>
+                    </div>
+
+                    <!-- Pro Development -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-2 opacity-75">
+                            <span class="text-xl">🚀</span>
+                            <h3 class="text-base font-bold text-gray-700">Pro Development*</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 italic">Business planning, Web &amp; Mobile App dev.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Requirements Callout -->
+        <section class="bg-indigo-900 text-white p-6 rounded-xl shadow-md mb-12">
+            <h3 class="text-lg font-bold tracking-wider uppercase text-indigo-200">The Learning Pathway Requirement</h3>
+            <p class="text-xl font-semibold mt-1 text-amber-300">REQUIRED: WEEKLY CHECK-INS</p>
+            <p class="mt-2 text-sm text-indigo-100 leading-relaxed">
+                Check-ins ensure progression towards employment within our community admin or external partners. 
+            </p>
+            <p class="mt-4 text-xs text-indigo-200 border-t border-indigo-800 pt-3">
+                *Note: Professional Development and Employment services require completion of all learning programs. Active engagement in learning programs with weekly check-ins is required to Join the Board.
+            </p>
+        </section>
+
+        <!-- Community Registration Form -->
+        <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Community Registration Form</h3>
+            
+            <form action="#" method="POST" class="space-y-5">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required 
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required 
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile No.</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile number" required 
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="pathway" class="block text-sm font-medium text-gray-700">Intended Pathway Focus</label>
+                    <select id="pathway" name="pathway" 
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option>Advocacy &amp; Admin</option>
+                        <option>Wellbeing &amp; Support</option>
+                        <option>Life Skills</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="referral" class="block text-sm font-medium text-gray-700">Service Provider / Referral Details (If applicable)</label>
+                    <textarea id="referral" name="referral" rows="3" placeholder="Any relevant details regarding registration context..."
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div class="relative flex items-start pt-2">
+                    <div class="flex items-center h-5">
+                        <input id="acknowledgement" name="acknowledgement" type="checkbox" required
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="acknowledgement" class="font-medium text-gray-700">I acknowledge terms</label>
+                        <p class="text-gray-500 text-xs">I acknowledge that material-aid is strictly provided upon registration for services and that ongoing program access requires consistent weekly check-ins.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" 
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150">
+                        Submit Registration
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Navigation Link -->
+        <div class="mt-8 text-center">
+            <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition duration-150">&larr; Back to Main</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 text-xs py-6 text-center border-t border-gray-900 mt-12 w-full">
+        <p>&copy; 2026 Infinity Link | The Foundation Project.</p>
+    </footer>
+
+</body>
+</html>
