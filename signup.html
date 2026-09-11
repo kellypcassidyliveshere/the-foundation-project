@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Lounge Membership - The Foundation Project</title>
+    <style>
+        :root {
+            --primary-color: #0b3c65;
+            --accent-yellow: #facc15;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --badge-bg: #f1f5f9;
+            --badge-text: #334155;
+        }
+
+        body {
+            font-family: Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .badge-top {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: #0f172a;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .perks-card {
+            background-color: #f0f7ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #0369a1;
+        }
+
+        .perks-card h3 {
+            margin-top: 0;
+            color: #0c4a6e;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .perks-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .perks-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: #0369a1;
+        }
+
+        .perks-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold;
+        }
+
+        .mission-card {
+            background-color: var(--card-bg);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .mission-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .mission-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* Form Styling */
+        .form-card {
+            background-color: var(--card-bg);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .form-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+        }
+
+        .submit-box {
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .submit-box p {
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-yellow);
+            color: #0f172a;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        .back-link-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid #cbd5e1;
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge-top">Union Rd Community Hub</div>
+        <h1>CYBER LOUNGE MEMBERSHIP</h1>
+        <p>Join our exclusive community space for signature juices, cutting-edge gear, and social impact.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Member Perks Card -->
+        <div class="perks-card">
+            <h3>⚡ Exclusive Member Benefits</h3>
+            <ul class="perks-list">
+                <li>Special discounts on signature juices and accessories</li>
+                <li>Access to weekly community tournaments</li>
+                <li>Exclusive pod access and priority drops</li>
+            </ul>
+        </div>
+
+        <!-- Social Mission Card -->
+        <div class="mission-card">
+            <h3>🤝 Purpose-Driven Community</h3>
+            <p>Every membership and purchase directly funds <strong>The Foundation Project</strong>, supporting victims of abuse, homelessness, and disabilities.</p>
+        </div>
+
+        <!-- Signup Form Section -->
+        <div class="form-card">
+            <h3>Membership Registration</h3>
+            
+            <form action="https://formspree.io/f/xoeqbpoq" method="POST">
+                
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="e.g. Alex Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="alex@example.com" required>
+                </div>
+
+                <!-- Submit Box Wrapper -->
+                <div class="submit-box">
+                    <p style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px;">Secure Your Access</p>
+                    <p>Register now to lock in your membership privileges and support our social enterprise ecosystem.</p>
+                    <button type="submit" class="btn-submit">Join Cyber Lounge</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-link-container">
+            <a href="index.html" class="btn-back">← Return to Main</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Infinity Link | The Foundation Project.
+    </footer>
+
+</body>
+</html>

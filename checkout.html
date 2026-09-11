@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Lounge & Juice Bar — Secure Checkout</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --text-main: #ffffff;
+            --text-muted: #85929E;
+            --neon-green: #00ff66;
+            --neon-purple: #9932cc;
+            --neon-clear: #00ffcc;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .checkout-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-bottom: 4px solid var(--neon-purple);
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .order-summary-box {
+            background-color: #151a21;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #2c3540;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid #2c3540;
+            padding-top: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--neon-green);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--neon-purple);
+            margin-bottom: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .method-card {
+            background-color: #151a21;
+            border: 2px solid #2c3540;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .method-card:hover {
+            border-color: rgba(153, 50, 204, 0.5);
+        }
+
+        .method-card.selected {
+            border-color: var(--neon-purple);
+            background-color: rgba(138, 43, 226, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background-color: #151a21;
+            border: 1px solid #2c3540;
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--neon-purple);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #8a2be2, #4b0082);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #9932cc, #5c00a3);
+        }
+
+        /* WhatsApp Action Button on Receipt View */
+        .whatsapp-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.1s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(90deg, #20ba5a, #0e7568);
+            transform: scale(1.02);
+        }
+
+        /* Receipt View Container */
+        .receipt-container {
+            display: none;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--neon-green);
+            margin-bottom: 15px;
+        }
+
+        .receipt-number {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4rem;
+            color: var(--neon-green);
+            background-color: #151a21;
+            padding: 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 15px 0;
+            letter-spacing: 1px;
+            border: 1px dashed var(--neon-green);
+        }
+
+        .location-badge {
+            background-color: rgba(0, 255, 204, 0.1);
+            color: var(--neon-clear);
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px solid var(--neon-clear);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container" id="checkout-view">
+        <h1>Secure Checkout</h1>
+        
+        <div class="order-summary-box">
+            <div class="section-title">Order Spec Summary</div>
+            <div class="summary-row">
+                <span id="summary-flavour">System Fuel Base</span>
+                <span id="summary-base-cost">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Custom Boosters Added (<span id="summary-booster-count">0</span>)</span>
+                <span id="summary-booster-cost">$0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total Amount</span>
+                <span id="summary-total-cost">$0.00</span>
+            </div>
+        </div>
+
+        <div class="section-title">Select Gateway Method</div>
+        <div class="payment-methods">
+            <div class="method-card selected" onclick="selectPaymentMethod(this, 'Apple Pay')">Apple Pay</div>
+            <div class="method-card" onclick="selectPaymentMethod(this, 'Google Pay')">Google Pay</div>
+            <div class="method-card" onclick="selectPaymentMethod(this, 'PayID')">PayID / Osko</div>
+            <div class="method-card" onclick="selectPaymentMethod(this, 'Credit Card')">Credit Card</div>
+        </div>
+
+        <div id="card-fields-wrapper" style="display: none;">
+            <div class="input-group">
+                <label>Cardholder Name</label>
+                <input type="text" placeholder="e.g. Member Account Holder">
+            </div>
+            <div class="input-group">
+                <label>Card Number</label>
+                <input type="text" placeholder="•••• •••• •••• ••••">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Member Order Name / Alias (For pickup identification)</label>
+            <input type="text" id="member-name-input" placeholder="Enter your name or gamer tag" required>
+        </div>
+
+        <button class="submit-btn" onclick="processAuthorisation()">Authorize Transaction &rarr;</button>
+    </div>
+
+    <div class="checkout-container receipt-container" id="receipt-view">
+        <div class="success-icon">✓</div>
+        <h1>System Fuel Authorized</h1>
+        <p>Please note your tracking details before submitting your order to our bar system.</p>
+        
+        <div>Receipt Identification Reference:</div>
+        <div class="receipt-number" id="receipt-id-placeholder">CLJB-XXXX-XXXX</div>
+
+        <div class="location-badge">
+            📍 Pickup Target Location: 30 Dunlop Avenue, Ascot Vale, 3032
+        </div>
+
+        <button class="whatsapp-btn" onclick="sendWhatsAppPayload()">Place Your Order via WhatsApp 🚀</button>
+    </div>
+
+    <script>
+        const orderFlavour = localStorage.getItem("selectedFlavourName") || "Signature Drink";
+        const totalCostString = localStorage.getItem("finalOrderTotal") || "10.00";
+        const boosterCount = parseInt(localStorage.getItem("finalBoosterCount")) || 0;
+        const boosterArray = JSON.parse(localStorage.getItem("selectedBoostersArray") || "[]");
+
+        let chosenMethod = "Apple Pay";
+        let activeReceiptNumber = "";
+        let customerName = "Anonymous Member";
+
+        const totalCost = parseFloat(totalCostString);
+        const boosterCost = boosterCount * 2.00;
+        const baseCost = totalCost - boosterCost;
+
+        document.getElementById('summary-flavour').innerText = orderFlavour;
+        document.getElementById('summary-base-cost').innerText = `$${baseCost.toFixed(2)}`;
+        document.getElementById('summary-booster-count').innerText = boosterCount;
+        document.getElementById('summary-booster-cost').innerText = `$${boosterCost.toFixed(2)}`;
+        document.getElementById('summary-total-cost').innerText = `$${totalCost.toFixed(2)}`;
+
+        function selectPaymentMethod(element, methodName) {
+            document.querySelectorAll('.method-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            chosenMethod = methodName;
+
+            const cardWrapper = document.getElementById('card-fields-wrapper');
+            if(methodName === 'Credit Card') {
+                cardWrapper.style.display = 'block';
+            } else {
+                cardWrapper.style.display = 'none';
+            }
+        }
+
+        function generateReceiptNumber() {
+            const segment1 = Math.floor(1000 + Math.random() * 9000);
+            const segment2 = Math.floor(1000 + Math.random() * 9000);
+            return `CLJB-${segment1}-${segment2}`;
+        }
+
+        function processAuthorisation() {
+            customerName = document.getElementById('member-name-input').value.trim() || "Anonymous Member";
+            activeReceiptNumber = generateReceiptNumber();
+
+            // Display values immediately on the receipt view layer
+            document.getElementById('receipt-id-placeholder').innerText = activeReceiptNumber;
+
+            // Switch presentation views safely
+            document.getElementById('checkout-view').style.display = 'none';
+            document.getElementById('receipt-view').style.display = 'block';
+        }
+
+        function sendWhatsAppPayload() {
+            // Build text payload explicitly including the static receipt generated on screen
+            const whatsappText = encodeURIComponent(
+                `*CYBER LOUNGE & JUICE BAR ORDER RECEIPT*\n` +
+                `------------------------------------\n` +
+                `*Receipt No:* ${activeReceiptNumber}\n` +
+                `*Customer/Tag:* ${customerName}\n` +
+                `*Flavour Profile:* ${orderFlavour}\n` +
+                `*Boosters Loaded:* ${boosterCount > 0 ? boosterArray.join(', ') : 'None'}\n` +
+                `*Payment Method:* ${chosenMethod}\n` +
+                `*Total Paid:* $${totalCost.toFixed(2)}\n` +
+                `------------------------------------\n` +
+                `*Pickup Location:* Union Rd Lounge Counter\n` +
+                `*Status:* Confirmed & Ready for Assembly 🚀`
+            );
+
+            const whatsappUrl = `https://wa.me/61434195228?text=${whatsappText}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

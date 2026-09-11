@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Lounge & Juice Bar — Menu</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --text-main: #ffffff;
+            --neon-green: #00ff66; /* Neon Green for the total price */
+            --neon-clear: #00ffcc;
+            --neon-yoghurt: #ff007f;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px; /* Space for sticky bar */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        header p {
+            color: #85929E;
+            font-size: 1.1rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .drink-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .drink-card.clear-base {
+            border-bottom: 4px solid var(--neon-clear);
+        }
+
+        .drink-card.yoghurt-base {
+            border-bottom: 4px solid var(--neon-yoghurt);
+        }
+
+        .drink-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .drink-card.clear-base:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+            border-color: var(--neon-clear);
+        }
+
+        .drink-card.yoghurt-base:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+            border-color: var(--neon-yoghurt);
+        }
+
+        .drink-card.selected {
+            background-color: #2b3746;
+        }
+        .drink-card.clear-base.selected { border: 2px solid var(--neon-clear); border-bottom: 6px solid var(--neon-clear); }
+        .drink-card.yoghurt-base.selected { border: 2px solid var(--neon-yoghurt); border-bottom: 6px solid var(--neon-yoghurt); }
+
+        /* Image frame styling inside clickable box */
+        .image-container {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            background-color: #10151d;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps aspect ratios clean */
+            transition: transform 0.3s ease;
+        }
+
+        .drink-card:hover .image-container img {
+            transform: scale(1.05);
+        }
+
+        .drink-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+        }
+
+        .drink-desc {
+            color: #aeb6bf;
+            font-size: 0.9rem;
+            margin: 0 0 12px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .clear-base .badge {
+            background-color: rgba(0, 255, 204, 0.1);
+            color: var(--neon-clear);
+        }
+
+        .yoghurt-base .badge {
+            background-color: rgba(255, 0, 127, 0.1);
+            color: var(--neon-yoghurt);
+        }
+
+        .price-box {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            color: #85929E;
+        }
+
+        .total-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.2);
+        }
+
+        /* Sticky Bottom Navigation Bar */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #151a21;
+            border-top: 2px solid #2c3540;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .sticky-info h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .sticky-info p {
+            margin: 3px 0 0 0;
+            color: var(--neon-green);
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background: linear-gradient(90deg, #8a2be2, #4b0082);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .next-btn:disabled {
+            background: #2c3540;
+            color: #566573;
+            cursor: not-allowed;
+        }
+
+        .next-btn:not(:disabled):hover {
+            transform: scale(1.03);
+            background: linear-gradient(90deg, #9932cc, #5c00a3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Select Your System Fuel</h1>
+        <p>Step 1: Choose a Signature Flavour Profile</p>
+    </header>
+
+    <main class="menu-grid">
+        <!-- ==================== CLEAR COCONUT WATER BASES ($10) ==================== -->
+        <div class="drink-card clear-base" id="celestial-harvest" onclick="toggleSelection('celestial-harvest')">
+            <div class="image-container">
+                <img src="celestialharvest.jpg" alt="Celestial Harvest">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Celestial Harvest</div>
+                <div class="drink-desc">Blueberry & Lavender</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="kaleb-moon" onclick="toggleSelection('kaleb-moon')">
+            <div class="image-container">
+                <img src="kalebmoon.jpg" alt="Kaleb Moon">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Kaleb Moon</div>
+                <div class="drink-desc">Lychee & White Grape</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="kiwi-crisp" onclick="toggleSelection('kiwi-crisp')">
+            <div class="image-container">
+                <img src="kiwicrisp.jpg" alt="Kiwi Crisp">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Kiwi Crisp</div>
+                <div class="drink-desc">Kiwifruit & Green Apple</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="cool-melon-rush" onclick="toggleSelection('cool-melon-rush')">
+            <div class="image-container">
+                <img src="coolmelonrush.jpg" alt="Cool Melon Rush">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Cool Melon Rush</div>
+                <div class="drink-desc">Watermelon + Blueberry + Mint</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="passion-glow" onclick="toggleSelection('passion-glow')">
+            <div class="image-container">
+                <img src="passionglow.jpg" alt="Passion Glow">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Passion Glow</div>
+                <div class="drink-desc">Peach & Passionfruit</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="apple-ember" onclick="toggleSelection('apple-ember')">
+            <div class="image-container">
+                <img src="appleember.jpg" alt="Apple Ember">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Apple Ember</div>
+                <div class="drink-desc">Apple & Cinnamon</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card clear-base" id="lime-rush" onclick="toggleSelection('lime-rush')">
+            <div class="image-container">
+                <img src="limerush.jpg" alt="Lime Rush">
+            </div>
+            <div>
+                <span class="badge">Coconut Water Base</span>
+                <div class="drink-name">Lime Rush</div>
+                <div class="drink-desc">Lime & Ginger</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$10.00</span>
+            </div>
+        </div>
+
+        <!-- ==================== YOGHURT & COCONUT WATER BLEND BASES ($11) ==================== -->
+        <div class="drink-card yoghurt-base" id="dragonberry-dream" onclick="toggleSelection('dragonberry-dream')">
+            <div class="image-container">
+                <img src="dragonberrydream.jpg" alt="Dragonberry Dream">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Dragonberry Dream</div>
+                <div class="drink-desc">Dragonfruit & Raspberry</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="mystic-bloom" onclick="toggleSelection('mystic-bloom')">
+            <div class="image-container">
+                <img src="mysticbloom.jpg" alt="Mystic Bloom">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Mystic Bloom</div>
+                <div class="drink-desc">Pear + Almond + Vanilla</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="velvet-charge" onclick="toggleSelection('velvet-charge')">
+            <div class="image-container">
+                <img src="velvetcharge.jpg" alt="Velvet Charge">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Velvet Charge</div>
+                <div class="drink-desc">Blackberry & Blood Orange</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="ruby-pulse" onclick="toggleSelection('ruby-pulse')">
+            <div class="image-container">
+                <img src="rubypulse.jpg" alt="Ruby Pulse">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Ruby Pulse</div>
+                <div class="drink-desc">Pomegranate & Blueberry</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="vanilla-cherry-kiss" onclick="toggleSelection('vanilla-cherry-kiss')">
+            <div class="image-container">
+                <img src="vanillakiss.jpg" alt="Vanilla Cherry Kiss">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Vanilla Cherry Kiss</div>
+                <div class="drink-desc">Cherry & Vanilla</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="berry-choc-whirl" onclick="toggleSelection('berry-choc-whirl')">
+            <div class="image-container">
+                <img src="berrychocwhirl.jpg" alt="Berry Choc Whirl">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Berry Choc Whirl</div>
+                <div class="drink-desc">Strawberry & Cocoa</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+
+        <div class="drink-card yoghurt-base" id="maia-gold" onclick="toggleSelection('maia-gold')">
+            <div class="image-container">
+                <img src="maiagold.jpg" alt="Maia Gold">
+            </div>
+            <div>
+                <span class="badge">Yoghurt & Coconut Base</span>
+                <div class="drink-name">Maia Gold</div>
+                <div class="drink-desc">Mango + Pineapple + Banana</div>
+            </div>
+            <div class="price-box">
+                <span class="price-label">Total Price</span>
+                <span class="total-price">$11.00</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sticky Bottom Bar -->
+    <div class="sticky-bar">
+        <div class="sticky-info">
+            <h3 id="display-name">Select a drink</h3>
+            <p id="display-price">Baseline Total: $0.00</p>
+        </div>
+        <button id="next-button" class="next-btn" disabled onclick="navigateToBoosters()">Customize Boosters &rarr;</button>
+    </div>
+
+    <script>
+        const cyberLoungeMenu = {
+            "celestial-harvest": { name: "Celestial Harvest", totalBase: 10.00 },
+            "kaleb-moon": { name: "Kaleb Moon", totalBase: 10.00 },
+            "kiwi-crisp": { name: "Kiwi Crisp", totalBase: 10.00 },
+            "cool-melon-rush": { name: "Cool Melon Rush", totalBase: 10.00 },
+            "passion-glow": { name: "Passion Glow", totalBase: 10.00 },
+            "apple-ember": { name: "Apple Ember", totalBase: 10.00 },
+            "lime-rush": { name: "Lime Rush", totalBase: 10.00 },
+            "dragonberry-dream": { name: "Dragonberry Dream", totalBase: 11.00 },
+            "mystic-bloom": { name: "Mystic Bloom", totalBase: 11.00 },
+            "velvet-charge": { name: "Velvet Charge", totalBase: 11.00 },
+            "ruby-pulse": { name: "Ruby Pulse", totalBase: 11.00 },
+            "vanilla-cherry-kiss": { name: "Vanilla Cherry Kiss", totalBase: 11.00 },
+            "berry-choc-whirl": { name: "Berry Choc Whirl", totalBase: 11.00 },
+            "maia-gold": { name: "Maia Gold", totalBase: 11.00 }
+        };
+
+        let currentSelectionKey = null;
+
+        function toggleSelection(flavourKey) {
+            document.querySelectorAll('.drink-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            if (currentSelectionKey === flavourKey) {
+                currentSelectionKey = null;
+                document.getElementById('display-name').innerText = "Select a drink";
+                document.getElementById('display-price').innerText = "Baseline Total: $0.00";
+                document.getElementById('next-button').disabled = true;
+            } else {
+                currentSelectionKey = flavourKey;
+                const item = cyberLoungeMenu[flavourKey];
+                
+                document.getElementById(flavourKey).classList.add('selected');
+                document.getElementById('display-name').innerText = `Selected: ${item.name}`;
+                document.getElementById('display-price').innerText = `Baseline Total: $${item.totalBase.toFixed(2)}`;
+                document.getElementById('next-button').disabled = false;
+            }
+        }
+
+        function navigateToBoosters() {
+            if (!currentSelectionKey) return;
+            const selectedItem = cyberLoungeMenu[currentSelectionKey];
+            
+            localStorage.setItem("selectedFlavourKey", currentSelectionKey);
+            localStorage.setItem("selectedFlavourName", selectedItem.name);
+            localStorage.setItem("currentRunningTotal", selectedItem.totalBase.toString());
+            
+            window.location.href = "addboosters.html";
+        }
+    </script>
+</body>
+</html>
