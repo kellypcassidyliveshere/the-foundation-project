@@ -6,81 +6,89 @@
     <title>Cyber Lounge Membership - The Foundation Project</title>
     <style>
         :root {
-            --primary-color: #0b3c65;
+            --bg-dark: #050b14;
+            --card-bg: #0b1329;
+            --primary-cyan: #00f0ff;
+            --accent-magenta: #ff007f;
             --accent-yellow: #facc15;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --badge-bg: #f1f5f9;
-            --badge-text: #334155;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.4);
         }
 
         body {
-            font-family: Arial, sans-serif, -apple-system, BlinkMacSystemFont;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace, -apple-system, BlinkMacSystemFont;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, #070d1d 0%, #0b193d 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 45px 20px;
+            border-bottom: 2px solid var(--primary-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
         .badge-top {
             display: inline-block;
             background-color: var(--accent-yellow);
-            color: #0f172a;
+            color: #050b14;
             font-size: 0.75rem;
             font-weight: bold;
             padding: 6px 14px;
-            border-radius: 20px;
-            letter-spacing: 1px;
+            border-radius: 4px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
         }
 
         header h1 {
             margin: 0 0 15px 0;
             font-size: 1.8rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+            color: var(--primary-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         header p {
             margin: 0 auto;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             max-width: 600px;
-            opacity: 0.95;
+            color: var(--text-muted);
         }
 
         .container {
             max-width: 700px;
-            margin: 20px auto;
+            margin: 25px auto;
             padding: 0 15px;
         }
 
         .perks-card {
-            background-color: #f0f7ff;
-            border: 1px solid #bae6fd;
-            border-radius: 8px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 6px;
             padding: 20px;
             margin-bottom: 25px;
-            font-size: 0.95rem;
-            color: #0369a1;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
         }
 
         .perks-card h3 {
             margin-top: 0;
-            color: #0c4a6e;
-            font-size: 1.15rem;
+            color: var(--primary-cyan);
+            font-size: 1.1rem;
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .perks-list {
@@ -93,54 +101,63 @@
             position: relative;
             padding-left: 24px;
             margin-bottom: 10px;
-            color: #0369a1;
+            color: var(--text-main);
+            font-size: 0.9rem;
         }
 
         .perks-list li::before {
-            content: "✓";
+            content: ">";
             position: absolute;
             left: 0;
-            color: #0284c7;
+            color: var(--accent-magenta);
             font-weight: bold;
         }
 
         .mission-card {
             background-color: var(--card-bg);
-            border-top: 4px solid var(--primary-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-magenta);
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
             margin-bottom: 25px;
             padding: 20px;
         }
 
         .mission-card h3 {
-            color: var(--primary-color);
+            color: var(--accent-magenta);
             margin-top: 0;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .mission-card p {
             margin: 0;
-            font-size: 0.95rem;
-            color: #475569;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .mission-card strong {
+            color: var(--text-main);
         }
 
         /* Form Styling */
         .form-card {
             background-color: var(--card-bg);
-            border-top: 4px solid var(--primary-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
             margin-bottom: 25px;
-            padding: 20px;
+            padding: 25px;
         }
 
         .form-card h3 {
-            color: var(--primary-color);
+            color: var(--primary-cyan);
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .form-group {
@@ -150,56 +167,69 @@
         .form-group label {
             display: block;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 8px;
-            color: var(--text-color);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"] {
             width: 100%;
             padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border: 1px solid #1e293b;
+            border-radius: 4px;
             font-size: 0.95rem;
-            background-color: #f8fafc;
+            background-color: #030712;
+            color: var(--text-main);
             box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
         .submit-box {
-            background-color: var(--primary-color);
-            border-radius: 8px;
-            padding: 25px 20px;
+            background: linear-gradient(135deg, #070d1d 0%, #0b193d 100%);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 6px;
+            padding: 20px;
             text-align: center;
             color: white;
             margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
         }
 
         .submit-box p {
-            font-size: 0.9rem;
-            margin: 0 0 20px 0;
+            font-size: 0.85rem;
+            margin: 0 0 15px 0;
             line-height: 1.4;
-            opacity: 0.9;
+            color: var(--text-muted);
         }
 
         .btn-submit {
             background-color: var(--accent-yellow);
-            color: #0f172a;
+            color: #050b14;
             border: none;
             width: 100%;
             padding: 14px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+            transition: all 0.2s ease;
         }
 
         .btn-submit:hover {
-            opacity: 0.9;
+            background-color: #fde047;
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.7);
         }
 
         .back-link-container {
@@ -209,23 +239,32 @@
 
         .btn-back {
             display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
-            border: 1px solid #cbd5e1;
+            background-color: transparent;
+            color: var(--primary-cyan);
+            border: 1px solid var(--primary-cyan);
             padding: 10px 25px;
-            border-radius: 6px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            font-size: 0.85rem;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-            background-color: #ffffff;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid #1e293b;
+            background-color: #030712;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -234,14 +273,14 @@
     <header>
         <div class="badge-top">Union Rd Community Hub</div>
         <h1>CYBER LOUNGE MEMBERSHIP</h1>
-        <p>Join our exclusive community space for signature juices, cutting-edge gear, and social impact.</p>
+        <p>Access the grid. Secure signature juices, custom gear, and high-tier community nodes.</p>
     </header>
 
     <div class="container">
         
         <!-- Member Perks Card -->
         <div class="perks-card">
-            <h3>⚡ Exclusive Member Benefits</h3>
+            <h3>⚡ System Privileges</h3>
             <ul class="perks-list">
                 <li>Special discounts on signature juices and accessories</li>
                 <li>Access to weekly community tournaments</li>
@@ -251,13 +290,13 @@
 
         <!-- Social Mission Card -->
         <div class="mission-card">
-            <h3>🤝 Purpose-Driven Community</h3>
-            <p>Every membership and purchase directly funds <strong>The Foundation Project</strong>, supporting victims of abuse, homelessness, and disabilities.</p>
+            <h3>🤝 Protocol: Social Impact</h3>
+            <p>Every membership and transaction directly fuels <strong>The Foundation Project</strong>, providing vital resources to victims of abuse, homelessness, and disabilities.</p>
         </div>
 
         <!-- Signup Form Section -->
         <div class="form-card">
-            <h3>Membership Registration</h3>
+            <h3>Node Registration</h3>
             
             <form action="https://formspree.io/f/xoeqbpoq" method="POST">
                 
@@ -273,8 +312,8 @@
 
                 <!-- Submit Box Wrapper -->
                 <div class="submit-box">
-                    <p style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px;">Secure Your Access</p>
-                    <p>Register now to lock in your membership privileges and support our social enterprise ecosystem.</p>
+                    <p style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main);">Initialize Access</p>
+                    <p>Transmit credentials to lock in your membership privileges and support the network.</p>
                     <button type="submit" class="btn-submit">Join Cyber Lounge</button>
                 </div>
 
@@ -283,7 +322,7 @@
 
         <!-- Back Button -->
         <div class="back-link-container">
-            <a href="index.html" class="btn-back">← Return to Main</a>
+            <a href="index.html" class="btn-back">&lt; Return to Main Grid</a>
         </div>
 
     </div>

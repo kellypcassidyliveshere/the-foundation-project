@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Cyber Lounge & Juice Bar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .neon-green {
+            color: #00ff66;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.7);
+        }
+        .neon-pink {
+            color: #ff00ff;
+            text-shadow: 0 0 8px rgba(255, 0, 255, 0.7);
+        }
+        .neon-blue {
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
+        }
+        
+        .order-summary-box {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #12141c;
+            border: 1px solid #ff00ff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+            text-align: left;
+        }
+        .order-summary-box h3 {
+            color: #ff00ff;
+            margin-top: 0;
+            text-align: center;
+            font-size: 16px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .summary-total {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00ff66;
+            border-top: 1px solid #333;
+            padding-top: 8px;
+            margin-top: 10px;
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: #00f0ff;
+            margin-bottom: 5px;
+        }
+        .cyber-input {
+            width: 100%;
+            padding: 10px;
+            background-color: #12141c;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .pay-btn {
+            display: block;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 14px;
+            background: transparent;
+            border: 2px solid #00ff66;
+            border-radius: 8px;
+            color: #00ff66;
+            font-weight: bold;
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .pay-btn:hover {
+            background-color: rgba(0, 255, 102, 0.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #aaaaaa;
+        }
+        footer a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <span class="neon-green">SECURE</span> <span class="neon-pink">CHECKOUT</span>
+    </h1>
+
+    <div class="order-summary-box">
+        <h3>ORDER SUMMARY</h3>
+        <div class="summary-row">
+            <span id="drinkNameDisplay">Drink: Loading...</span>
+            <span id="drinkBasePriceDisplay">$0.00</span>
+        </div>
+        <div class="summary-row" id="boostersRow" style="display: none;">
+            <span>Boosters:</span>
+            <span id="boostersListDisplay" style="text-align: right; max-width: 200px; font-size: 12px; color: #ff00ff;">None</span>
+        </div>
+        <div class="summary-row summary-total">
+            <span>Total Price:</span>
+            <span id="totalPriceDisplay">$0.00</span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="custName">Your Name</label>
+            <input type="text" id="custName" class="cyber-input" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+            <label for="custPhone">Mobile Number</label>
+            <input type="tel" id="custPhone" class="cyber-input" placeholder="Enter your mobile number">
+        </div>
+        <div class="form-group">
+            <label for="cardNumber">Card Details (Simulated)</label>
+            <input type="text" id="cardNumber" class="cyber-input" placeholder="4242 •••• •••• 4242">
+        </div>
+    </div>
+
+    <button class="pay-btn" onclick="processPayment()">PAY NOW</button>
+
+    <footer>
+        Every sip creates change. We allocate 10% of all profits to fund <a href="https://thefoundationproject.online" target="_blank">thefoundationproject.online</a>
+    </footer>
+
+    <script>
+        // Parse URL parameters passed from addboosters.html
+        const urlParams = new URLSearchParams(window.location.search);
+        const drinkName = urlParams.get('name') || 'Custom Drink';
+        const totalPrice = urlParams.get('price') || '10.00';
+        const boostersParam = urlParams.get('boosters');
+        const boosterPricesParam = urlParams.get('booster_prices');
+
+        // Populate UI
+        document.getElementById('drinkNameDisplay').textContent = drinkName;
+        document.getElementById('totalPriceDisplay').textContent = '$' + parseFloat(totalPrice).toFixed(2);
+
+        // Calculate base price vs boosters if booster data exists
+        // (Assuming base drink was either 10 or 11, or calculate backwards if booster prices are provided)
+        let estimatedBasePrice = 10.00;
+        if (drinkName.toLowerCase().includes('maia gold') || 
+            drinkName.toLowerCase().includes('dragonberry dream') || 
+            drinkName.toLowerCase().includes('cool melon rush') || 
+            drinkName.toLowerCase().includes('berry choc whirl')) {
+            estimatedBasePrice = 11.00;
+        }
+        document.getElementById('drinkBasePriceDisplay').textContent = '$' + estimatedBasePrice.toFixed(2);
+
+        if (boostersParam) {
+            const boostersRow = document.getElementById('boostersRow');
+            const boostersListDisplay = document.getElementById('boostersListDisplay');
+            
+            const boostersArray = boostersParam.split(',');
+            boostersListDisplay.textContent = boostersArray.join(', ');
+            boostersRow.style.display = 'flex';
+        }
+
+        function processPayment() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+
+            if (!name || !phone) {
+                alert('Please enter your name and mobile number to complete the order.');
+                return;
+            }
+
+            alert('Payment of $' + parseFloat(totalPrice).toFixed(2) + ' successful! Your order for ' + drinkName + ' is being prepared.');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
